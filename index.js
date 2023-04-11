@@ -57,20 +57,20 @@ const questions = [
     },
 ]
 
-    .then((data) => console.log(data)
-    );
-
-function writeToFile(fileName, data) {
+function createFile(data) {
     fs.writeFile('README.md', data, (err) =>
-    error ? console.error(err) : console.log("Your README is done! Check your root folder for the file.");
+    err ? console.error(err) : console.log("Your README is done! Check your root folder for the file.")
 )}
 
 // Function call to initialize app
-// init() {
-//     inquirer.prompt(questions)
 
-//     .then ((response) {
-//         console.log(response)
+let init = function() {
+    inquirer.prompt(questions)
 
-//     })
-// }
+    .then ((data) =>
+      generateMarkdown(data),
+      createFile('README.md', data)
+    )
+}
+
+init()
