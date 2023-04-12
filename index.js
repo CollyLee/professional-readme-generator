@@ -53,24 +53,24 @@ const questions = [
         type: 'list',
         message: "Almost done! Select which license this app is covered under.",
         name: 'license',
-        choices: "'MIT', 'Boose Software 1.0', 'Creative Commons Zero v1.0 Universal', 'N/A'"
+        choices: ['MIT', 'Boose Software 1.0', 'Creative Commons Zero v1.0 Universal', 'N/A']
     },
 ]
 
 function createFile(data) {
-    fs.writeFile('README.md', data, (err) =>
-    err ? console.error(err) : console.log("Your README is done! Check your root folder for the file.")
-)}
+    const readMeData = generateMarkdown(data)
+    fs.writeFile("README.md", readMeData, (err) =>
+        err ? console.error(err) : console.log("Your README is done! Check your root folder for the file.")
+    )
+}
 
 // Function call to initialize app
 
-let init = function() {
+const init = function () {
     inquirer.prompt(questions)
-
-    .then ((data) =>
-      generateMarkdown(data),
-      createFile('README.md', data)
-    )
+        .then((data) =>
+            createFile(data)
+        )
 }
 
 init()
