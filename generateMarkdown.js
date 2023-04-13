@@ -23,7 +23,7 @@ function generateMarkdown(data) {
 
 ${data.description} 
 
-# Table of Contents 
+## Table of Contents 
 
 - [Description](#description)
 
@@ -33,21 +33,23 @@ ${data.description}
 
 - [Contributions](#Contributions)
 
-# Installation 
+## Installation 
 
 ${data.installation} 
 
-# Usage 
+## Usage 
+
+The application can be found [here](${data.deployedURL}).
 
 ${data.instructions} 
 
 ![project screenshot](${data.screenshotPath})
 
-# License
+## License
 
 This application is covered under the ${data.license} license.
 
-# Contributions 
+## Contributions 
 
 ${data.contributions}. Contributions can be emailed to me at ${data.contactInfo}.
 
